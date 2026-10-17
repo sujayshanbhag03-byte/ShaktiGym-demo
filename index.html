@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0b0b">
+<meta name="description" content="Train stronger, move better and feel healthier at Shakti Gym Town, Sirsi. Explore personal training, fitness classes, nutrition plans and membership options.">
+<title>Shakti Gym Town | Train Beyond Limits</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --red: #ed2029;
+  --red-dark: #bd151d;
+  --black: #090909;
+  --panel: #131313;
+  --panel2: #191919;
+  --white: #f5f3f0;
+  --muted: #a09d99;
+  --line: rgba(255,255,255,.11);
+  --max: 1200px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+img { display: block; max-width: 100%; }
+.container { width: min(var(--max), 90%); margin: auto; }
+section { padding: 100px 0; }
+.section-head { max-width: 680px; margin-bottom: 42px; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--red);
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+.eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--red); }
+h1, h2, h3, .brand, .price {
+  font-family: "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
+  line-height: .98;
+}
+h1 { font-size: clamp(4rem, 10vw, 8.5rem); font-weight: 900; letter-spacing: -2px; }
+h2 { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800; letter-spacing: -.5px; }
+h3 { font-size: 1.65rem; font-weight: 700; }
+.section-head p { color: var(--muted); margin-top: 18px; max-width: 600px; }
+.red { color: var(--red); }
+.muted { color: var(--muted); }
+
+.btn {
+  min-height: 49px;
+  padding: 14px 22px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: .84rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  border: 1px solid transparent;
+  transition: .25s ease;
+  cursor: pointer;
+}
+.btn-primary { background: var(--red); color: white; }
+.btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+.btn-outline { border-color: rgba(255,255,255,.35); background: transparent; color: white; }
+.btn-outline:hover { border-color: var(--red); color: var(--red); }
+.btn-dark { background: #fff; color: #090909; }
+.btn-dark:hover { background: var(--red); color: white; }
+
+header {
+  height: 78px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9,9,9,.93);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+.brand { display: flex; align-items: center; gap: 11px; font-size: 1.75rem; font-weight: 900; white-space: nowrap; }
+.brand-mark {
+  width: 39px; height: 39px; display: grid; place-items: center;
+  background: var(--red); color: white; font-size: 1.25rem; font-weight: 900;
+  transform: skew(-7deg);
+}
+.brand small { display: block; font: 600 .58rem "DM Sans", sans-serif; color: var(--muted); letter-spacing: 3px; margin-top: 2px; }
+.nav-links { display: flex; align-items: center; gap: 26px; }
+.nav-links a:not(.btn) { font-size: .82rem; color: #c6c4c1; transition: color .2s; }
+.nav-links a:not(.btn):hover { color: var(--red); }
+.menu-toggle {
+  display: none; border: 1px solid var(--line); background: var(--panel);
+  color: white; padding: 8px 12px; font-size: 1.2rem;
+}
+
+.hero {
+  min-height: 690px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 100px 0 90px;
+  background:
+    linear-gradient(90deg, rgba(6,6,6,.98) 0%, rgba(6,6,6,.88) 38%, rgba(6,6,6,.24) 100%),
+    linear-gradient(0deg, #090909 0%, transparent 25%),
+    url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=85") center 45%/cover;
+}
+.hero::after {
+  content: "ST";
+  position: absolute;
+  right: -25px;
+  bottom: -115px;
+  font: 900 clamp(17rem, 35vw, 34rem)/1 "Barlow Condensed", sans-serif;
+  color: rgba(255,255,255,.035);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; max-width: 800px; }
+.hero h1 span { color: var(--red); }
+.hero-copy { max-width: 530px; margin: 25px 0 30px; color: #d1ceca; font-size: 1rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-note { margin-top: 45px; display: flex; align-items: center; gap: 12px; color: #d5d2ce; font-size: .82rem; }
+.status-dot { width: 9px; height: 9px; background: #4dd58a; border-radius: 50%; box-shadow: 0 0 14px #4dd58a; }
+.hero-stamp {
+  position: absolute; right: 8%; bottom: 17%;
+  width: 115px; height: 115px; border: 1px solid rgba(255,255,255,.5);
+  border-radius: 50%; display: grid; place-items: center; text-align: center;
+  font: 700 1rem "Barlow Condensed", sans-serif; letter-spacing: 2px;
+  transform: rotate(-12deg);
+}
+.hero-stamp span { color: var(--red); display: block; font-size: 1.8rem; }
+
+.ticker { background: var(--red); overflow: hidden; padding: 14px 0; }
+.ticker-track {
+  display: flex; gap: 38px; width: max-content;
+  animation: ticker 32s linear infinite;
+  font: 700 1.25rem "Barlow Condensed", sans-serif;
+  letter-spacing: 2px; text-transform: uppercase;
+}
+.ticker-track span { white-space: nowrap; }
+.ticker-track b { color: #650b10; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+.stats { border-bottom: 1px solid var(--line); }
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+.stat { padding: 34px 20px; border-right: 1px solid var(--line); }
+.stat:first-child { padding-left: 0; }
+.stat:last-child { border-right: 0; }
+.stat strong { display: block; font: 800 2.4rem "Barlow Condensed",sans-serif; }
+.stat span { color: var(--muted); font-size: .8rem; }
+
+.cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.card {
+  background: var(--panel); border: 1px solid var(--line);
+  padding: 30px; transition: .25s ease;
+}
+.card:hover { border-color: rgba(237,32,41,.7); transform: translateY(-4px); }
+.card-icon {
+  width: 48px; height: 48px; display: grid; place-items: center;
+  background: rgba(237,32,41,.12); color: var(--red);
+  font-size: 1.45rem; margin-bottom: 25px;
+}
+.card p { color: var(--muted); font-size: .9rem; margin-top: 12px; }
+.card .arrow { color: var(--red); font-size: 1.3rem; margin-top: 22px; display: block; }
+
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 65px; align-items: center; }
+.photo-panel { min-height: 460px; position: relative; }
+.photo-panel img { width: 100%; height: 460px; object-fit: cover; filter: saturate(.65); }
+.photo-panel::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.13); pointer-events: none; }
+.photo-label {
+  position: absolute; bottom: 24px; left: -18px; z-index: 1;
+  background: var(--red); padding: 17px 22px; font: 700 1.2rem "Barlow Condensed",sans-serif;
+  text-transform: uppercase;
+}
+.check-list { display: grid; gap: 17px; margin: 28px 0 32px; }
+.check { display: flex; gap: 13px; color: #d5d2ce; font-size: .93rem; }
+.check b { color: var(--red); }
+
+.training { background: #101010; }
+.training-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.training-card {
+  min-height: 290px; padding: 27px; display: flex; flex-direction: column; justify-content: flex-end;
+  background: linear-gradient(0deg,rgba(0,0,0,.96),rgba(0,0,0,.18)),
+  url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80") center/cover;
+  border: 1px solid var(--line); transition: .25s;
+}
+.training-card:nth-child(2) { background-image: linear-gradient(0deg,rgba(0,0,0,.96),rgba(0,0,0,.18)),url("https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=800&q=80"); }
+.training-card:nth-child(3) { background-image: linear-gradient(0deg,rgba(0,0,0,.96),rgba(0,0,0,.18)),url("https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"); }
+.training-card:nth-child(4) { background-image: linear-gradient(0deg,rgba(0,0,0,.96),rgba(0,0,0,.18)),url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80"); }
+.training-card:nth-child(5) { background-image: linear-gradient(0deg,rgba(0,0,0,.96),rgba(0,0,0,.18)),url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"); }
+.training-card:nth-child(6) { background-image: linear-gradient(0deg,rgba(0,0,0,.96),rgba(0,0,0,.18)),url("https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=800&q=80"); }
+.training-card:hover { border-color: var(--red); }
+.training-card .number { color: var(--red); font: 800 1rem "Barlow Condensed",sans-serif; margin-bottom: 10px; }
+.training-card p { color: #b8b5b1; font-size: .86rem; margin-top: 10px; }
+
+.nutrition-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; align-items: start; }
+.nutrition-intro { position: sticky; top: 115px; }
+.nutrition-intro p { color: var(--muted); margin: 18px 0 25px; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.tag {
+  border: 1px solid var(--line); background: var(--panel);
+  color: #d7d3cf; padding: 11px 14px; font-size: .82rem;
+  transition: .2s;
+}
+.tag:hover { border-color: var(--red); color: white; }
+.nutrition-note { border-left: 2px solid var(--red); padding: 16px 18px; margin-top: 25px; background: var(--panel); color: var(--muted); font-size: .8rem; }
+
+.pricing { background: #101010; }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.price-panel { border: 1px solid var(--line); background: var(--black); padding: 32px; }
+.price-panel.featured { border-top: 3px solid var(--red); }
+.price-panel h3 { margin-bottom: 7px; }
+.price-panel > p { color: var(--muted); font-size: .85rem; margin-bottom: 25px; }
+.price-row {
+  display: flex; justify-content: space-between; gap: 20px;
+  padding: 15px 0; border-bottom: 1px solid var(--line); font-size: .9rem;
+}
+.price-row:last-of-type { border-bottom: 0; }
+.price { color: var(--red); font-size: 1.65rem; white-space: nowrap; }
+.price-note { color: var(--muted); font-size: .75rem; margin-top: 20px; }
+
+.trainers { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.trainer { background: var(--panel); border: 1px solid var(--line); }
+.trainer img { width: 100%; height: 380px; object-fit: cover; object-position: center 30%; background: #222; }
+.trainer-info { padding: 25px; }
+.trainer-info .role { color: var(--red); font-size: .75rem; text-transform: uppercase; letter-spacing: 1.7px; font-weight: 700; }
+.trainer-info h3 { margin: 10px 0; font-size: 2rem; }
+.trainer-info p { color: var(--muted); font-size: .88rem; }
+
+.reviews { background: #101010; }
+.review-box {
+  border: 1px solid var(--line); background: var(--black); padding: 36px;
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 30px;
+}
+.google-word { font-size: 1.15rem; font-weight: 700; }
+.google-word span:nth-child(1) { color: #4285f4; }
+.google-word span:nth-child(2) { color: #ea4335; }
+.google-word span:nth-child(3) { color: #fbbc05; }
+.google-word span:nth-child(4) { color: #4285f4; }
+.google-word span:nth-child(5) { color: #34a853; }
+.google-word span:nth-child(6) { color: #ea4335; }
+.review-box h3 { margin: 15px 0 12px; }
+.review-box p { color: var(--muted); font-size: .9rem; max-width: 580px; }
+.review-mark { font: 900 7rem "Barlow Condensed",sans-serif; color: rgba(237,32,41,.15); line-height: 1; }
+
+.location-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 35px; }
+.location-card { border: 1px solid var(--line); background: var(--panel); padding: 30px; }
+.location-item { display: flex; gap: 15px; margin: 25px 0; }
+.location-item .icon { color: var(--red); font-size: 1.25rem; width: 26px; flex-shrink: 0; }
+.location-item strong { display: block; margin-bottom: 4px; }
+.location-item p { color: var(--muted); font-size: .88rem; }
+.map-panel {
+  min-height: 360px; position: relative; overflow: hidden;
+  background: linear-gradient(135deg,#171717,#222,#111);
+  display: grid; place-items: center; border: 1px solid var(--line);
+}
+.map-pattern {
+  position: absolute; inset: 0; opacity: .35;
+  background-image: linear-gradient(35deg,transparent 48%,#555 49%,#555 50%,transparent 51%),linear-gradient(120deg,transparent 48%,#444 49%,#444 50%,transparent 51%);
+  background-size: 75px 75px;
+}
+.map-content { position: relative; text-align: center; padding: 25px; }
+.map-pin { color: var(--red); font-size: 3rem; }
+.map-content h3 { margin: 10px 0; }
+.map-content p { color: var(--muted); margin-bottom: 20px; font-size: .85rem; }
+
+.final-cta { padding: 90px 0; background: var(--red); }
+.final-cta .eyebrow { color: white; }
+.final-cta .eyebrow::before { background: white; }
+.final-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.final-cta h2 { max-width: 680px; }
+.final-cta .btn { flex-shrink: 0; }
+
+footer { padding: 35px 0; border-top: 1px solid var(--line); }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+footer p { color: var(--muted); font-size: .78rem; }
+.footer-links { display: flex; gap: 20px; font-size: .8rem; }
+.footer-links a:hover { color: var(--red); }
+.whatsapp-float {
+  position: fixed; right: 22px; bottom: 22px; z-index: 99;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #25d366; color: white; display: grid; place-items: center;
+  font-size: 1.55rem; box-shadow: 0 6px 25px #0008; transition: .2s;
+}
+.whatsapp-float:hover { transform: translateY(-4px); }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s, transform .65s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  .nav-links { gap: 14px; }
+  .nav-links a:not(.btn) { font-size: .75rem; }
+  .nav-links .btn { padding: 11px 14px; }
+  .brand { font-size: 1.4rem; }
+  .split { gap: 35px; }
+  .cards, .training-grid { grid-template-columns: repeat(2,1fr); }
+  .nutrition-layout { grid-template-columns: 1fr; }
+  .nutrition-intro { position: static; }
+}
+@media (max-width: 650px) {
+  section { padding: 72px 0; }
+  header { height: 70px; }
+  .container { width: 91%; }
+  .menu-toggle { display: block; }
+  .nav-links {
+    display: none; position: absolute; top: 69px; left: 0; right: 0;
+    background: #0d0d0d; padding: 22px 5%; border-bottom: 1px solid var(--line);
+    flex-direction: column; align-items: stretch; gap: 0;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a:not(.btn) { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: .9rem; }
+  .nav-links .btn { margin-top: 15px; }
+  .hero { min-height: 620px; padding: 90px 0 65px; background-position: 58% center; }
+  .hero h1 { font-size: clamp(3.7rem, 17vw, 6rem); }
+  .hero-copy { font-size: .92rem; }
+  .hero-stamp { width: 78px; height: 78px; right: 5%; bottom: 8%; font-size: .65rem; }
+  .hero-stamp span { font-size: 1.2rem; }
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+  .stat { padding: 22px 12px; border-bottom: 1px solid var(--line); }
+  .stat:nth-child(2) { border-right: 0; }
+  .stat:nth-child(3) { padding-left: 0; border-bottom: 0; }
+  .stat:nth-child(4) { border-bottom: 0; border-right: 0; }
+  .stat strong { font-size: 2rem; }
+  .cards, .training-grid, .trainers, .pricing-grid, .location-grid, .split { grid-template-columns: 1fr; }
+  .card { padding: 25px; }
+  .photo-panel, .photo-panel img { min-height: 330px; height: 330px; }
+  .photo-label { left: -5px; }
+  .training-card { min-height: 260px; }
+  .price-panel { padding: 23px; }
+  .price-row { font-size: .82rem; }
+  .price { font-size: 1.4rem; }
+  .trainer img { height: 330px; }
+  .review-box { grid-template-columns: 1fr; padding: 25px; }
+  .review-mark { display: none; }
+  .final-cta-inner { align-items: flex-start; flex-direction: column; }
+  .final-cta h2 { font-size: 3rem; }
+  .footer-inner { align-items: flex-start; flex-direction: column; }
+  .footer-links { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="Shakti Gym Town home">
+      <span class="brand-mark">S</span>
+      <span>SHAKTI<small>GYM TOWN · SIRSI</small></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#training">Training</a>
+      <a href="#nutrition">Nutrition</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#trainers">Trainers</a>
+      <a href="#location">Location</a>
+      <a class="btn btn-primary" href="#pricing">Join the Gym ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Your fitness journey starts here</div>
+      <h1>BUILT BY<br>DISCIPLINE.<br><span>DEFINED BY YOU.</span></h1>
+      <p class="hero-copy">Train with purpose. Build strength. Improve your fitness with personal training, dynamic workouts and nutrition guidance at Shakti Gym Town, Sirsi.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#pricing">Explore Memberships ↗</a>
+        <a class="btn btn-outline" href="#training">Discover Training</a>
+      </div>
+      <div class="hero-note"><span class="status-dot"></span> Open daily · 5:30 AM – 10:30 AM</div>
+    </div>
+  </div>
+  <div class="hero-stamp">TRAIN<br><span>HARD.</span><br>LIVE WELL.</div>
+</section>
+
+<div class="ticker" aria-label="Fitness services">
+  <div class="ticker-track">
+    <span>Strength Training <b>✳</b></span><span>Personal Training <b>✳</b></span>
+    <span>Nutrition Plans <b>✳</b></span><span>HIIT & CrossFit <b>✳</b></span>
+    <span>Better Every Day <b>✳</b></span>
+    <span>Strength Training <b>✳</b></span><span>Personal Training <b>✳</b></span>
+    <span>Nutrition Plans <b>✳</b></span><span>HIIT & CrossFit <b>✳</b></span>
+    <span>Better Every Day <b>✳</b></span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="container stats-grid">
+    <div class="stat"><strong class="red">01</strong><span>Personalised fitness</span></div>
+    <div class="stat"><strong>02</strong><span>Dedicated trainers</span></div>
+    <div class="stat"><strong class="red">360°</strong><span>Fitness & nutrition</span></div>
+    <div class="stat"><strong>ALL</strong><span>Fitness levels welcome</span></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container split">
+    <div class="photo-panel reveal">
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=85" alt="Gym training equipment and workout space" loading="lazy">
+      <div class="photo-label">Stronger starts here.</div>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">Welcome to Shakti</div>
+      <h2>MORE THAN<br>A <span class="red">WORKOUT.</span></h2>
+      <p class="muted" style="margin-top:22px">Your goals deserve more than a routine. At Shakti Gym Town, we bring together focused training, personal guidance and nutrition support to help you work towards your individual fitness goals.</p>
+      <div class="check-list">
+        <div class="check"><b>✦</b><span><strong>Personal training</strong><br>Work towards your goals with customised workouts.</span></div>
+        <div class="check"><b>✦</b><span><strong>Modern equipment</strong><br>Train with equipment for a variety of fitness needs.</span></div>
+        <div class="check"><b>✦</b><span><strong>Welcoming environment</strong><br>A fitness space where different people can feel welcome.</span></div>
+        <div class="check"><b>✦</b><span><strong>Nutrition planning</strong><br>Explore food and meal-planning guidance suited to your needs.</span></div>
+      </div>
+      <a class="btn btn-primary" href="#location">Visit Our Gym ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="training" id="training">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Find your training style</div>
+      <h2>TRAIN WITH<br><span class="red">INTENTION.</span></h2>
+      <p>From building strength to improving endurance, discover training options that suit your interests and fitness level.</p>
+    </div>
+    <div class="training-grid">
+      <article class="training-card reveal"><div class="number">01 / STRENGTH</div><h3>Weight Training</h3><p>Build strength and train specific muscle groups with a structured routine.</p></article>
+      <article class="training-card reveal"><div class="number">02 / CONDITIONING</div><h3>HIIT</h3><p>Alternate periods of intense effort and recovery in a dynamic workout.</p></article>
+      <article class="training-card reveal"><div class="number">03 / PERFORMANCE</div><h3>CrossFit</h3><p>Combine varied functional movements, strength work and conditioning.</p></article>
+      <article class="training-card reveal"><div class="number">04 / PERSONAL</div><h3>One-on-One</h3><p>Get customised workouts and focused guidance from a trainer.</p></article>
+      <article class="training-card reveal"><div class="number">05 / ENDURANCE</div><h3>Strength & Fitness</h3><p>Work on physical strength, stamina and general conditioning.</p></article>
+      <article class="training-card reveal"><div class="number">06 / ACTIVE LIFE</div><h3>Sports & Cycling</h3><p>Explore cycling, youth and adult sports, and group fitness activities.</p></article>
+    </div>
+    <div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:12px">
+      <a class="btn btn-primary" href="https://wa.me/918197875041?text=Hi%20Shakti%20Gym%20Town%2C%20I%27d%20like%20to%20know%20about%20your%20training%20programs." target="_blank" rel="noopener">Ask About Training ↗</a>
+      <a class="btn btn-outline" href="#pricing">View Prices</a>
+    </div>
+  </div>
+</section>
+
+<section id="nutrition">
+  <div class="container nutrition-layout">
+    <div class="nutrition-intro reveal">
+      <div class="eyebrow">Fuel your progress</div>
+      <h2>FITNESS<br>MEETS <span class="red">NUTRITION.</span></h2>
+      <p>Explore nutrition consultation and meal-planning services for different goals, lifestyles and dietary preferences.</p>
+      <a class="btn btn-primary" href="https://wa.me/918197875041?text=Hi%20Shakti%20Gym%20Town%2C%20I%27m%20interested%20in%20your%20nutrition%20services." target="_blank" rel="noopener">Enquire About Nutrition ↗</a>
+      <div class="nutrition-note">Medical nutrition needs should be assessed by an appropriately qualified healthcare professional. Service availability and suitability should be confirmed directly with the provider.</div>
+    </div>
+    <div class="reveal">
+      <div class="tag-list">
+        <span class="tag">Nutrition Plan</span>
+        <span class="tag">Meal Planning</span>
+        <span class="tag">Weight Management</span>
+        <span class="tag">Weight Gain</span>
+        <span class="tag">Vegetarian Diets</span>
+        <span class="tag">Vegan Diets</span>
+        <span class="tag">Sports Nutrition</span>
+        <span class="tag">Teen Nutrition</span>
+        <span class="tag">Family Nutrition</span>
+        <span class="tag">Pediatric Nutrition</span>
+        <span class="tag">Corporate Wellness</span>
+        <span class="tag">Nutrition Consultation</span>
+        <span class="tag">IBS Diets</span>
+        <span class="tag">Food Sensitivity Testing</span>
+        <span class="tag">Diabetes Diets</span>
+        <span class="tag">PCOS Diets</span>
+        <span class="tag">Post-Bariatric Diets</span>
+      </div>
+      <p class="muted" style="font-size:.8rem;margin-top:22px">Contact the gym to confirm the nutrition services currently offered, consultation arrangements and practitioner qualifications.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Invest in yourself</div>
+      <h2>YOUR GOALS.<br><span class="red">YOUR PLAN.</span></h2>
+      <p>Choose a membership or training package that fits your routine. Contact the gym to confirm current offers and terms.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-panel featured reveal">
+        <div class="eyebrow">Gym membership</div>
+        <h3>Membership Plans</h3>
+        <p>Choose your membership duration.</p>
+        <div class="price-row"><span>Gym Membership</span><strong class="price">₹1,500</strong></div>
+        <div class="price-row"><span>Monthly Fee</span><strong class="price">₹600</strong></div>
+        <div class="price-row"><span>3 Months</span><strong class="price">₹1,999</strong></div>
+        <div class="price-row"><span>6 Months</span><strong class="price">₹3,999</strong></div>
+        <div class="price-row"><span>1 Year</span><strong class="price">₹6,999</strong></div>
+        <div class="price-row"><span>2 Years</span><strong class="price">₹12,999</strong></div>
+        <p class="price-note">Prices displayed as provided by the gym. Confirm applicable fees, inclusions and membership conditions before joining.</p>
+        <a class="btn btn-primary" style="width:100%;margin-top:20px" href="https://wa.me/918197875041?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Shakti%20Gym%20Town%20membership%20plans." target="_blank" rel="noopener">Enquire About Membership ↗</a>
+      </div>
+
+      <div class="price-panel reveal">
+        <div class="eyebrow">Personalised coaching</div>
+        <h3>Training Packages</h3>
+        <p>Ask about individual and group options.</p>
+        <div class="price-row"><span>Personal Training · 24 Sessions</span><strong class="price">₹2,999</strong></div>
+        <div class="price-row"><span>Home Training · Per Session</span><strong class="price">₹200</strong></div>
+        <div class="price-row"><span>Outdoor & Boot Camp · 4 Sessions</span><strong class="price">₹1,000</strong></div>
+        <div class="price-row"><span>Couples · 24 Sessions</span><strong class="price">₹4,999</strong></div>
+        <div class="price-row"><span>Group Classes · 24 Sessions</span><strong class="price">₹5,999</strong></div>
+        <p class="price-note">Confirm session duration, availability, package validity and any additional charges directly with the gym.</p>
+        <a class="btn btn-outline" style="width:100%;margin-top:20px" href="https://wa.me/918197875041?text=Hi%2C%20I%27d%20like%20details%20about%20personal%20training%20and%20coaching%20packages." target="_blank" rel="noopener">Ask About Coaching ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="trainers">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Meet your trainers</div>
+      <h2>GOOD COACHING.<br><span class="red">BETTER HABITS.</span></h2>
+      <p>Meet the people behind the training at Shakti Gym Town.</p>
+    </div>
+
+    <div class="trainers">
+      <article class="trainer reveal">
+        <img src="SanjuBorkar.jpg" alt="Sanju Borkar, owner and lead trainer at Shakti Gym Town" loading="lazy">
+        <div class="trainer-info">
+          <div class="role">Owner & Lead Trainer</div>
+          <h3>Sanju Borkar</h3>
+          <p>Guiding members through their fitness routines and helping them work towards their training goals.</p>
+        </div>
+      </article>
+      <article class="trainer reveal">
+        <img src="ManjuBorkar.jpg" alt="Manjunath Borkar, HIIT and CrossFit specialist" loading="lazy">
+        <div class="trainer-info">
+          <div class="role">HIIT & CrossFit Specialist</div>
+          <h3>Manjunath Borkar</h3>
+          <p>Focused on dynamic workouts, conditioning and varied training sessions.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">The community speaks</div>
+      <h2>WHAT OUR<br><span class="red">MEMBERS SAY.</span></h2>
+      <p>Choosing a gym is personal. Explore genuine feedback and share your own experience.</p>
+    </div>
+
+    <div class="review-box reveal">
+      <div>
+        <div class="google-word" aria-label="Google">
+          <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+          <span style="color:white"> Reviews</span>
+        </div>
+        <h3>Real experiences. <span class="red">Real feedback.</span></h3>
+        <p>See the latest available Google reviews for Shakti Gym Town, Sirsi, and decide whether the gym is right for you. If you've trained here, you can also share honest feedback about your experience.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px">
+          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Shakti+Gym+Town+Sirsi+Karnataka" target="_blank" rel="noopener">Find Google Reviews ↗</a>
+          <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Shakti+Gym+Town+Sirsi+Karnataka" target="_blank" rel="noopener">View on Maps</a>
+        </div>
+      </div>
+      <div class="review-mark" aria-hidden="true">“</div>
+    </div>
+    <p class="muted" style="font-size:.76rem;margin-top:16px">Reviews and ratings are not reproduced here. Follow the link to view available Google listing information and genuine customer feedback.</p>
+  </div>
+</section>
+
+<section id="location">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Come train with us</div>
+      <h2>FIND YOUR<br><span class="red">FITNESS SPACE.</span></h2>
+      <p>Have a question about memberships, training or nutrition? Get in touch with the team.</p>
+    </div>
+
+    <div class="location-grid">
+      <div class="location-card reveal">
+        <h3>Visit Shakti Gym Town</h3>
+        <div class="location-item">
+          <span class="icon">⌖</span>
+          <div><strong>Our Address</strong><p>2nd Floor, Trimukha Ganapati Complex,<br>Sirsi–Banavasi Road, Nirmalanagara,<br>Sirsi, Karnataka 581401</p></div>
+        </div>
+        <div class="location-item">
+          <span class="icon">◷</span>
+          <div><strong>Opening Hours</strong><p>Every day<br>5:30 AM – 10:30 AM</p></div>
+        </div>
+        <div class="location-item">
+          <span class="icon">☎</span>
+          <div><strong>Contact</strong><p><a href="tel:+918197875041">+91 81978 75041</a></p></div>
+        </div>
+        <div class="location-item">
+          <span class="icon">♡</span>
+          <div><strong>Everyone Welcome</strong><p>LGBTQ+ friendly environment.</p></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:25px">
+          <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=Shakti+Gym+Town%2C+Trimukha+Ganapati+Complex%2C+Sirsi%2C+Karnataka+581401" target="_blank" rel="noopener">Get Directions ↗</a>
+          <a class="btn btn-outline" href="https://wa.me/918197875041?text=Hi%20Shakti%20Gym%20Town%2C%20I%20have%20an%20enquiry." target="_blank" rel="noopener">WhatsApp Us ↗</a>
+        </div>
+      </div>
+
+      <div class="map-panel reveal">
+        <div class="map-pattern"></div>
+        <div class="map-content">
+          <div class="map-pin">⌖</div>
+          <div class="eyebrow" style="justify-content:center">Located in Sirsi</div>
+          <h3>YOUR NEXT<br>WORKOUT AWAITS.</h3>
+          <p>Trimukha Ganapati Complex<br>Sirsi, Karnataka 581401</p>
+          <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=Shakti+Gym+Town+Sirsi+Karnataka" target="_blank" rel="noopener">Open Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container final-cta-inner">
+    <div>
+      <div class="eyebrow">No perfect time. Just start.</div>
+      <h2>MAKE YOUR<br>NEXT MOVE.</h2>
+    </div>
+    <a class="btn btn-dark" href="https://wa.me/918197875041?text=Hi%20Shakti%20Gym%20Town%2C%20I%27d%20like%20to%20enquire%20about%20joining." target="_blank" rel="noopener">Start Your Enquiry ↗</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <a class="brand" href="#home">
+      <span class="brand-mark">S</span>
+      <span>SHAKTI<small>GYM TOWN · SIRSI</small></span>
+    </a>
+    <p>© <span id="year"></span> Shakti Gym Town. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/shakti_gym_town/" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="https://wa.me/918197875041" target="_blank" rel="noopener">WhatsApp ↗</a>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/918197875041?text=Hi%20Shakti%20Gym%20Town%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener" aria-label="Contact Shakti Gym Town on WhatsApp">✆</a>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+  menuToggle.textContent = isOpen ? "✕" : "☰";
+});
+
+document.querySelectorAll("#navLinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation");
+    menuToggle.textContent = "☰";
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const revealItems = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealItems.forEach(item => observer.observe(item));
+} else {
+  revealItems.forEach(item => item.classList.add("visible"));
+}
+</script>
+</body>
+</html>
